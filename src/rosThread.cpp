@@ -44,7 +44,7 @@ void RosThread::work(){
     }
 
 
-    messageNewTaskInfoPub = n.advertise<taskObserverISLH::newTaskInfoMessage>("taskObserverISLH/newTaskInfo",5);
+    messageNewTaskInfoPub = n.advertise<ISLH_msgs::newTaskInfoMessage>("taskObserverISLH/newTaskInfo",5);
 
 
     messageTaskObserveOKSub = n.subscribe("taskHandlerISLH/taskObserveOK",5,&RosThread::handleTaskObserveOK, this);
@@ -73,7 +73,7 @@ void RosThread::work(){
 
                 qDebug()<< " time " << encounteringTime;
 
-                taskObserverISLH::newTaskInfoMessage newTaskMsg;
+                ISLH_msgs::newTaskInfoMessage newTaskMsg;
 
                 newTaskMsg.timeStamp = encounteringTime;
 

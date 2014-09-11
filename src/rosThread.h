@@ -8,7 +8,7 @@
 #include <QtCore/QString>
 #include <gsl/gsl_rng.h>
 #include <gsl/gsl_randist.h>
-#include <taskObserverISLH/newTaskInfoMessage.h>
+#include <ISLH_msgs/newTaskInfoMessage.h>
 #include "std_msgs/UInt8.h"
 #include <QUuid>
 
