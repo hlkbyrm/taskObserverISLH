@@ -49,6 +49,8 @@ private:
 
      void handleTaskObserveOK(std_msgs::UInt8 msg);
 
+     int queueSize;
+
 public slots:
      void work();
 

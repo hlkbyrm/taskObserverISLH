@@ -44,10 +44,10 @@ void RosThread::work(){
     }
 
 
-    messageNewTaskInfoPub = n.advertise<ISLH_msgs::newTaskInfoMessage>("taskObserverISLH/newTaskInfo",5);
+    messageNewTaskInfoPub = n.advertise<ISLH_msgs::newTaskInfoMessage>("taskObserverISLH/newTaskInfo",queueSize);
 
 
-    messageTaskObserveOKSub = n.subscribe("taskHandlerISLH/taskObserveOK",5,&RosThread::handleTaskObserveOK, this);
+    messageTaskObserveOKSub = n.subscribe("taskHandlerISLH/taskObserveOK", queueSize,&RosThread::handleTaskObserveOK, this);
 
 
     srand( time( NULL ) );
@@ -150,6 +150,9 @@ bool RosThread::readConfigFile(QString filename)
     {
         taskLambda = result["poissonTaskLambda"].toDouble();
         qDebug()<< " Task lambda " << taskLambda;
+
+        queueSize = result["queueSize"].toInt();
+        qDebug()<<result["queueSize"].toString();
 
 
         //int numTasks = result["numtasks"].toInt();
