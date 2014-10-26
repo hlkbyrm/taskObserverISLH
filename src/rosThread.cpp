@@ -47,7 +47,7 @@ void RosThread::work(){
     messageNewTaskInfoPub = n.advertise<ISLH_msgs::newTaskInfoMessage>("taskObserverISLH/newTaskInfo",queueSize);
 
 
-    messageTaskObserveOKSub = n.subscribe("taskHandlerISLH/taskObserveOK", queueSize,&RosThread::handleTaskObserveOK, this);
+    messageTaskObserveOKSub = n.subscribe("taskHandlerISLH/taskObserveOK", 1,&RosThread::handleTaskObserveOK, this);
 
 
     srand( time( NULL ) );
